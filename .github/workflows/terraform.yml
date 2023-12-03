@@ -19,14 +19,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Go to setup/terraform
+      - name: Apply Terraform
         run: |
           cd setup/terraform
-
-      - name: Apply Terraform Changes
-        run: |
           terraform apply -auto-approve
 
-      - name: Apply Terraform Changes
+      - name: Output Terraform
         run: |
+          cd setup/terraform
           terraform output
